@@ -1,7 +1,7 @@
 def call(Map config=[:]) {
 node 
   {
-	  properties([parameters([string(defaultValue: 'Enter Git Url', description: '', name: 'gitUrl', trim: false)])])	 
+	  properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
 	  stage('GitSCM')
 	  {
 		  git url: "${params.gitUrl}"
