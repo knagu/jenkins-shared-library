@@ -1,4 +1,4 @@
-def call(Closure body) {
+def call(Map config=[:]) {
 node 
   {
 	  stage('GitSCM')
@@ -11,9 +11,10 @@ node
 	   sh "${mvnHome}/bin/mvn -B clean install"    
 	  }
 	  stage('Test'){
+		  if(config.Test)
 		  echo "Tests successful"
 	  }
-	  body()
+	 
 	 
   }
 }
