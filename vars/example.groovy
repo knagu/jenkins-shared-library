@@ -1,4 +1,4 @@
-def call() {
+def call(Closure body) {
 node 
   {
 	  stage('GitSCM')
@@ -13,6 +13,7 @@ node
 	  stage('Test'){
 		  echo "Tests successful"
 	  }
+	  body()
 	 
   }
 }
