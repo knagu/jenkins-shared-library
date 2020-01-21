@@ -1,11 +1,8 @@
 def call(Map config=[:]) {
 node 
   {
-	  properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
-	  stage('GitSCM')
-	  {
-		  git url: "${params.gitUrl}"
-	  }
+	  //properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
+	  
     	  stage('Build Stage')
 	  {
 	   def mvnHome = tool 'maven'
