@@ -2,11 +2,11 @@ def call(Map config=[:]) {
 node 
   {
 	  parameters{
-		  string(defaultValue: "https://github.com/knagu/game-of-life.git", description: 'What environment?', name: 'gitUrl')
+		  string(defaultValue: "'https://github.com/knagu/game-of-life.git'", description: 'What environment?', name: 'gitUrl')
 	  }	 
 	  stage('GitSCM')
 	  {
-		  git url: '"${params.gitUrl}"'
+		  git url: ${params.gitUrl}'
 	  }
     	  stage('Build Stage')
 	  {
