@@ -11,7 +11,7 @@ node
 	   sh "${mvnHome}/bin/mvn -B clean install"    
 	  }
 	  stage('Test'){
-		  if(config.Test)
+		  //if(config.Test)
 		  echo "Tests successful"
 	  }
 	 
