@@ -6,7 +6,7 @@ node
 	  }	 
 	  stage('GitSCM')
 	  {
-		  git url: ${params.gitUrl}
+		  git url: '${params.gitUrl}'
 	  }
     	  stage('Build Stage')
 	  {
