@@ -3,11 +3,11 @@ node
   {
      stage('GitSCM')
     {
-        git url: 'https://github.com/selvan123/petclinic.git'
+        git url: 'https://github.com/knagu/game-of-life.git'
     }
     stage('Build Stage')
     {
-	   sh "${mvnHome}/bin/mvn -B verify"
+	   sh "${mvnHome}/bin/mvn -B clean install"
     }
   }
 }
