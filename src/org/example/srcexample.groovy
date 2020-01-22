@@ -1,3 +1,5 @@
+package org.example
+
 def call(Map config=[:]) {
 node 
   {
