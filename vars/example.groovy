@@ -1,4 +1,4 @@
-def call(Map config=[:]) {
+def call(Map config=[:], Closure body) {
 node 
   {
 	  //properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
@@ -6,6 +6,7 @@ node
 	  //{
 	//	  git url: 'https://github.com/knagu/game-of-life.git'
 	  //}
+	  body()
     	  stage('Build Stage')
 	  {
 	   def mvnHome = tool 'M2'
