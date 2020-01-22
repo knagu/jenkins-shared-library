@@ -5,7 +5,7 @@ node
 	  
     	  stage('Build Stage')
 	  {
-	   def mvnHome = tool 'maven'
+	   def mvnHome = tool 'M2'
 	   sh "${mvnHome}/bin/mvn -B clean install"    
 	  }
 	  stage('Test'){
