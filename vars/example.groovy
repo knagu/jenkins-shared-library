@@ -18,7 +18,7 @@ node
 	  stage('Test'){
 		  echo "Tests successful"
 	  }
-	  Stage('deploy') {
+	  stage('deploy') {
 	          echo "Deploy successful"
 	  }	 	 
   }
