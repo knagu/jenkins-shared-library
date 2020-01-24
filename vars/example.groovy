@@ -2,6 +2,9 @@ def call(Map config=[:]) {
 node 
   {
 	  //properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
+	  Stage ('workspace clean') {
+	  cleanWs()	  
+	  }
 	  stage('GitSCM')
 	  {
 		  git url: 'https://github.com/knagu/game-of-life.git'
