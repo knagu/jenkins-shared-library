@@ -20,7 +20,7 @@ node
 		  echo "Tests successful"
 	  }
 	  stage('deploy') {
-		  sh "curl -u jenkins:jenkins -T /var/lib/jenkins/workspace/ApplicationDemo@2/gameoflife-web/target/gameoflife.war "http://localhost:8081/manager/text/deploy?path=/GameofLife&update=true""
+		  sh "curl -u jenkins:jenkins -T /var/lib/jenkins/workspace/ApplicationDemo@2/gameoflife-web/target/gameoflife.war 'http://localhost:8081/manager/text/deploy?path=/GameofLife&update=true'"
 	          echo "Deploy successful"
 	  }	 	 
   }
