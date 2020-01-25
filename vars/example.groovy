@@ -11,13 +11,11 @@ node
 		  git url: 'https://github.com/knagu/game-of-life.git'
 	  }	  
     	  stage('Build Stage')
-	  {
-	   
-	   sh "${mvnHome}/bin/mvn -B clean install package"
+	  {	   
+	   sh "${mvnHome}/bin/mvn -B clean verify package"
 	   echo "Build Successful"
 	  }
-	  stage('Test'){
-		  //def mvnHome = tool 'M2'
+	  stage('Test'){		  
 		  sh "${mvnHome}/bin/mvn -B test"
 		  echo "Tests successful"
 	  }
