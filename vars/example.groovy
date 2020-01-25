@@ -12,10 +12,11 @@ node
     	  stage('Build Stage')
 	  {
 	   def mvnHome = tool 'M2'
-	   sh "${mvnHome}/bin/mvn -B clean install"
+	   sh "${mvnHome}/bin/mvn -B clean install package"
 	   echo "Build Successful"
 	  }
 	  stage('Test'){
+		  sh "${mvnHome}/bin/mvn -B test"
 		  echo "Tests successful"
 	  }
 	  stage('deploy') {
