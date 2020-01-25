@@ -16,6 +16,7 @@ node
 	   echo "Build Successful"
 	  }
 	  stage('Test'){
+		  def mvnHome = tool 'M2'
 		  sh "${mvnHome}/bin/mvn -B test"
 		  echo "Tests successful"
 	  }
