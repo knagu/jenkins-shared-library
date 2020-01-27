@@ -2,7 +2,7 @@ def call(Map config=[:]) {
 node 
   {
 	  def mvnHome = tool 'M2'
-	  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+	  
 	  stage ('workspace clean') {
 	  cleanWs()	  
 	  }
@@ -20,8 +20,10 @@ node
 		  echo "Tests successful"
 	  }
 	  stage('deploy') {
+		  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
 		  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/ApplicationDemo@2/gameoflife-web/target/gameoflife.war 'http://localhost:8081/manager/text/deploy?path=/GameofLife&update=true'"
-	          echo "Deploy successful"
+		  }
+		  echo "Deploy successful"
 	  }	 	 
   }
 }
