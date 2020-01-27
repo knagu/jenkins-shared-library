@@ -2,7 +2,7 @@ def call(Map config=[:]) {
 node 
   {
 	  def mvnHome = tool 'M2'
-	  withCredentials( [usernamePassword( credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+	  withCredentials( [usernamePassword( credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
 	  stage ('workspace clean') {
 	  cleanWs()	  
 	  }
