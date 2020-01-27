@@ -2,7 +2,7 @@ def call(Map config=[:]) {
 node 
   {
 	  def mvnHome = tool 'M2'
-	  //properties([parameters([string(defaultValue: 'https://github.com/knagu/game-of-life.git', description: '', name: 'gitUrl', trim: false)])])	 
+	  withCredentials( [usernamePassword( credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
 	  stage ('workspace clean') {
 	  cleanWs()	  
 	  }
@@ -20,7 +20,7 @@ node
 		  echo "Tests successful"
 	  }
 	  stage('deploy') {
-		  sh "curl -u jenkins:jenkins -T /var/lib/jenkins/workspace/ApplicationDemo@2/gameoflife-web/target/gameoflife.war 'http://localhost:8081/manager/text/deploy?path=/GameofLife&update=true'"
+		  sh "curl -u $USERNAME:$PASSWORD -T /var/lib/jenkins/workspace/ApplicationDemo@2/gameoflife-web/target/gameoflife.war 'http://localhost:8081/manager/text/deploy?path=/GameofLife&update=true'"
 	          echo "Deploy successful"
 	  }	 	 
   }
